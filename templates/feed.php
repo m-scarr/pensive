@@ -4,15 +4,27 @@ if (count(get_included_files()) == 1)
 ?>
 <main>
     <br />
-    <form action="./logic/submitPost.php" method="POST" style="text-align:center;">
+    <form id="post-form" action="./logic/submitPost.php" method="POST" style="text-align: center;">
         Create a Post
         <hr />
-        <textarea name="text" class="post-textarea"
+        <textarea id="post-text" name="text" class="post-textarea"
             placeholder="Make a post, share your thoughts or feelings!"></textarea>
         <input name="hideAuthor" type="checkbox" class="hide-author-input" />Anonymous Post<br /><br />
-        <button type="submit" class="post-submit">Post</button>
+        <button type="button" id="post-submit-button" disabled>Post</button>
     </form>
 </main>
+<script>
+    const postSubmitButton = document.getElementById("post-submit-button");
+    const postTextArea = document.getElementById("post-text");
+
+    postTextArea.oninput = (e) => {
+        if (e.target.value.length > 0) {
+            postSubmitButton.disabled = false;
+        } else {
+            postSubmitButton.disabled = true;
+        }
+    }
+</script>
 <style>
     .post-textarea {
         width: calc(100% - 6px);
@@ -23,7 +35,7 @@ if (count(get_included_files()) == 1)
 
     .hide-author-input {}
 
-    .post-submit {
+    #post-submit-button {
         width: 100%;
     }
 </style>
