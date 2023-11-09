@@ -24,6 +24,7 @@ if (count(get_included_files()) == 1)
             <img src="./assets/edit.png" id="profile-edit-about-me-button" />
         </div>
     </form>
+    <a href="./logic/logOut.php">Log Out</a>
 </main>
 
 <script>

@@ -14,8 +14,13 @@ if (count(get_included_files()) == 1)
             <div>Remember Me</div>
         </div><br />
         <div id="log-in-feedback">
+            <?php
+            if (isset($_GET["message"])) {
+                echo $_GET["message"];
+            }
+            ?>
         </div>
-        <button type="button" id="log-in-button">Log In</button>
+        <button type="button" id="log-in-button">Log In</button><br /><br />
     </form>
 </main>
 <script>
@@ -80,7 +85,7 @@ if (count(get_included_files()) == 1)
         margin-top: 8px;
     }
 
-    
+
     #log-in-feedback {
         color: red;
         font-size: 12px;
